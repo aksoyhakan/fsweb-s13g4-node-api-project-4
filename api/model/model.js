@@ -57,7 +57,11 @@ function getUsers() {
 }
 
 function register(newUser) {
-  let registeredUser = { id: getId(), ...newUser };
+  let registeredUser = {
+    id: getId(),
+    kullaniciadi: newUser.kullaniciadi,
+    sifre: hash.MD5(newUser.sifre),
+  };
   users.push(registeredUser);
   return Promise.resolve(registeredUser);
 }
