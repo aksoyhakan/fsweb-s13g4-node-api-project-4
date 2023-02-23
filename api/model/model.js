@@ -76,9 +76,13 @@ function getFindUser(user) {
 }
 
 function logIn(user) {
-  console.log("Nasıl yaa", user);
   !logUsers.includes(user) && logUsers.push(user);
   console.log(logUsers);
+  setTimeout(() => {
+    logUsers = logUsers.filter(
+      (item) => item.kullaniciadi != user.kullaniciadi
+    );
+  }, 30000);
 }
 
 function logUserFind(user) {
